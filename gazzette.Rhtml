@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script> function firstjsfunction() {
+    var w,x,y,z,person;
+    w=null;
+    x=5;
+    y=4;
+    z=x/y;
+    person={firstname:"Imad",lastname:"Rajwani",age:21};
+    function fullName() {return person.firstname + " " + person.lastname}
+    document.getElementById("demo").innerHTML = fullName();
+    
+} 
+function summation() { 
+var i=1;
+var r=3;
+var s;
+for(i=1,i<4,i++) {s=r^i+r^(i-1)};
+
+document.getElementById("powers").innerHTML=summation();
+}
+</script>
+<title>GAZZETTE</title>
+
+</head>
+
+<body>
+
+<h1> GAZZETTE </h1>
+<meta charset="utf-8">
+<style> 
+body {
+     margin: 0;
+     background: #101;
+     min-width: 960px;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+p {
+    font-family: verdana; 
+    font-size: 15px;
+    text-align: center;
+}
+
+#firsthalf {
+          text-align: center;
+          color: green;
+          
+}
+
+#demo { text-align: middle;
+       color: green;}
+#powers {text-align: middle;
+         color:blue;}
+</style>
+
+<style> 
+img {
+width:100%;
+}
+
+</style>
+
+<h2 style="background-color:rgb(200,150,210)">
+KILLER SHARK
+</h2>
+
+<p><img src = "https://i.ytimg.com/vi/aCU1d4CZ_Ag/hqdefault.jpg" alt = "Killer Shark" style="float:right;width:304px;height:228px;">There should be an image floating to the right of this text</p>
+<p id="firsthalf"> css stands for cascading style documents </p>
+
+<div> <p id="demo">A Paragraph</p> 
+<button type="button" onclick="firstjsfunction()">Try it</button> </div>
+<div> <button onclick="document.write(4*9)"> some math </button> </div>
+<div> <p id="powers"> for loop to add powers of one number</p>
+<button type="button" onclick="summation()"> powers of 3 </button>  </div>
+
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = Math.max(960, innerWidth),
+    height = Math.max(500, innerHeight);
+
+var x1 = width / 2,
+    y1 = height / 2,
+    x0 = x1,
+    y0 = y1,
+    i = 0,
+    r = 200,
+    τ = 2 * Math.PI;
+
+var canvas = d3.select("body").append("canvas")
+    .attr("width", width)
+    .attr("height", height)
+    .on("ontouchstart" in document ? "touchmove" : "mousemove", move);
+
+var context = canvas.node().getContext("2d");
+context.globalCompositeOperation = "lighter";
+context.lineWidth = 2;
+
+d3.timer(function() {
+  context.clearRect(0, 0, width, height);
+
+  var z = d3.hsl(++i % 360, 1, .5).rgb(),
+      c = "rgba(" + z.r + "," + z.g + "," + z.b + ",",
+      x = x0 += (x1 - x0) * .1,
+      y = y0 += (y1 - y0) * .1;
+
+  d3.select({}).transition()
+      .duration(2000)
+      .ease(Math.sqrt)
+      .tween("circle", function() {
+        return function(t) {
+          context.strokeStyle = c + (1 - t) + ")";
+          context.beginPath();
+          context.arc(x, y, r * t, 0, τ);
+          context.stroke();
+        };
+      });
+});
+
+function move() {
+  var mouse = d3.mouse(this);
+  x1 = mouse[0];
+  y1 = mouse[1];
+  d3.event.preventDefault();
+}
+
+</script>
+</body>
+
+
+</html>
