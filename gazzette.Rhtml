@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-
+<html lang='en-UK'>
+<!––  br and hr tags are empty  ––>
 <head>
 <script> function firstjsfunction() {
     var w,x,y,z,person;
@@ -33,11 +33,13 @@ document.getElementById("powers").innerHTML=summation();
 <style> 
 body {
      margin: 0;
-     background: #101;
+     background: #92;
      min-width: 960px;
 }
 
 h1 {
+    font-family: verdana;
+    font-size: 200%;
     color: white;
     text-align: center;
 }
@@ -47,6 +49,7 @@ p {
     font-size: 15px;
     text-align: center;
 }
+#caption {color:green}
 
 #firsthalf {
           text-align: center;
@@ -54,10 +57,15 @@ p {
           
 }
 
+#tableone {color:orange}
+
 #demo { text-align: middle;
        color: green;}
+#duckett {color:red;}
 #powers {text-align: middle;
          color:blue;}
+#predefinedtext {color:red;}         
+#email {color:orange;}
 </style>
 
 <style> 
@@ -67,18 +75,80 @@ width:100%;
 
 </style>
 
-<h2 style="background-color:rgb(200,150,210)">
-KILLER SHARK
+<h2 id='top' style="color:yellow;background-color:rgb(200,150,210)">
+<i> KILLER SHARK </i>
 </h2>
-
-<p><img src = "https://i.ytimg.com/vi/aCU1d4CZ_Ag/hqdefault.jpg" alt = "Killer Shark" style="float:right;width:304px;height:228px;">There should be an image floating to the right of this text</p>
-<p id="firsthalf"> css stands for cascading style documents </p>
-
-<div> <p id="demo">A Paragraph</p> 
+<a id='email' href='mailto:irajwani@bates.edu'> Click here to email me! </a>
+<pre id='predefinedtext'> Some predefined text in courier format </pre>
+<figure><img src = "https://i.ytimg.com/vi/aCU1d4CZ_Ag/hqdefault.jpg" alt = "Killer Shark" style="width:304px;height:228px;" align='right'><figcaption id='caption'>This is the caption for this cool shark</figcaption></figure>
+<hr>
+<p title='Pretty badass description of CSS' id="firsthalf"> css stands for cascading style documents </p>
+<form action="http://www.example.com/login.php"> <p>Username:
+    <input type="text" name="username" size="15"
+      maxlength="30" /> </p> 
+<p>Password: <input type="password" name="password" maxlength="30" /> </p>
+<p> What do you think of this site? </p> <textarea name="comments" cols="20" rows="4">Enter
+your comments...</textarea>
+<br/>
+<p>Please select your favorite genre:
+    <br />
+    <input type="radio" name="genre" value="rock"
+checked="checked" /> Rock
+<input type="radio" name="genre" value="pop" />
+Pop
+    <input type="radio" name="genre" value="jazz" />
+Jazz
+</p>
+<!-- drop down lists work better when there are numerous options -->
+<p>What device do you listen to music on?</p> 
+<select name="devices">
+<option value="ipod">iPod</option> <option value="radio">Radio</option> <option value="computer">Computer</option>
+  </select>
+</form>
+<!-- when allowing users to upload files, -->
+<form action="http://www.example.com/upload.php" method="post">
+<p>Upload your song in MP3 format:</p>
+<input type="file" name="user-song" /><br /> <input type="submit" value="Upload" />
+</form>
+<p id='duckett'>Movie Reviews: <ul>
+<li><a href="http://www.empireonline.com"> Empire</a></li>
+<li><a href="http://www.metacritic.com"> Metacritic</a></li>
+<li><a href="http://www.rottentomatoes.com"> Rotten Tomatoes</a></li>
+<li><a href="http://www.variety.com"> Variety</a></li>
+</ul> </p> 
+<!-- dont forget rowspan and colspan as attributes for th and you can also fix the header and footer using thead tbody and tfoot -->
+<table id='tableone' width='400' border='3' bgcolor=#efefef>
+<tr>
+<th></th>
+<th scope="col">first column</th> <th scope="col">second column</th>
+</tr>
+<tr>
+<th scope = "row">first row</th>
+<td>first entry</td><td>second entry</td>
+</tr>
+<tr bgcolor=#cccccc>
+<th scope = 'raw'>second row</th>
+<td>the first entry is moot</td>
+<td>the second entry is also moot</td>
+</tr>
+</table>
+<p id='duckett'> This is <b> bold text </b>, whereas this is <i> italic text </i>, and this is a 2009<sub>subscript</sub> while this is a E=MC<sup>superscript</sup></p>
+<p id='duckett'><strong>Beware:</strong> Pickpockets operate in this area.</p>
+<blockquote cite="http://en.wikipedia.org/wiki/ Winnie-the-Pooh">
+<p id='duckett'>Did you ever stop to think, and forget to start
+again?</p> </blockquote>
+<p id='duckett'>As A.A. Milne said, <q>Some people talk to animals. Not many listen though. That's the problem.</q></p>
+<p><abbr title="Professor">Prof</abbr> Stephen Hawking is a theoretical physicist and cosmologist.</p>
+<p><acronym title="National Aeronautics and Space Administration">NASA</acronym> do some crazy space stuff.</p>
+<p>It was the <del>worst</del> <ins>best</ins> idea she had ever had.</p>
+<div> <p id="demo">A Paragraph</p> <br> 
+<p id='demo'> Note the horizontal break in line </p>
+<hr> <p id='demo'> Similarly note the thematic segmentation using a horizontal line </p>
 <button type="button" onclick="firstjsfunction()">Try it</button> </div>
 <div> <button onclick="document.write(4*9)"> some math </button> </div>
 <div> <p id="powers"> for loop to add powers of one number</p>
 <button type="button" onclick="summation()"> powers of 3 </button>  </div>
+<button onclick="document.write(5*6)"> what happens when you multiply 5 and 6? </button>
 
 <script src="//d3js.org/d3.v3.min.js"></script>
 <script>
@@ -132,6 +202,8 @@ function move() {
 }
 
 </script>
+
+<p><a href="#top">Top</a></p>
 </body>
 
 
